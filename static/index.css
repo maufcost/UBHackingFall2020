@@ -50,6 +50,10 @@ ul {
 	right: 0;
 }
 
+.logo {
+	width: 100px;
+}
+
 header li {
 	font-weight: bolder;
 	transition: 0.2s;
