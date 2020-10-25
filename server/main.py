@@ -71,7 +71,7 @@ def get_username_info(user):
 #Given user handle OR id! -> returns up to 50 tweets
 def query_user_tweets(user):
 
-    url = "https://api.twitter.com/2/tweets/search/recent?query=from:{}&max_results=50&tweet.fields=created_at".format(user)
+    url = "https://api.twitter.com/2/tweets/search/recent?query=from:{} -is:retweet&max_results=50&tweet.fields=created_at".format(user)
 
     payload = {}
     headers = {
