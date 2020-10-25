@@ -11,6 +11,42 @@ app = Flask(__name__)
 TWITTER_API = os.environ.get('TTKEY')
 TWITTER_API_secret = os.environ.get('TTSECRET')
 BEARER_TOKEN = os.environ.get('BTOKEN')
+AZURE_KEY = os.environ.get('AZURE_KEY')
+ENDPOINT = "https://hellofriend.cognitiveservices.azure.com/"
+
+
+def analyze_sentiment(text):
+    sentiment_url = ENDPOINT + "/text/analytics/v3.0/sentiment"
+
+    documents = {"documents": [
+        {"id": "1", "language": "en",
+        "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."}
+        ]}
+
+    headers = {"Ocp-Apim-Subscription-Key": AZURE_KEY}
+
+    response = requests.post(sentiment_url, headers=headers, json=documents)
+    sentiments = response.json()
+    print(sentiments)
+
+    return sentiments
+
+def get_key_phrases(text):
+    keyphrase_url = ENDPOINT + "/text/analytics/v3.0/keyphrases"
+
+    documents = {"documents": [
+        {"id": "1", "language": "en",
+        "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."}
+        ]}
+
+    headers = {"Ocp-Apim-Subscription-Key": AZURE_KEY}
+
+    response = requests.post(keyphrase_url, headers=headers, json=documents)
+
+    key_phrases  = response.json()
+    print(key_phrases)
+
+    return key_phrases
 
 def randomStringDigits(stringLength=2):
 
@@ -64,6 +100,7 @@ def get_user_friends(user):
 
 @app.route('/')
 def root():
+    analyze_sentiment("I")
     return render_template('index.html')
 
 @app.route('/results')
