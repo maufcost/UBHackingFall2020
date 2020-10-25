@@ -30,7 +30,7 @@ def analyze_sentiment(text):
     response = requests.post(sentiment_url, headers=headers, json=documents)
     sentiments = response.json()
     print(sentiments)
-    time.sleep(0.5)
+    time.sleep(0.6)
     return sentiments
 
 def get_key_phrases(text):
@@ -73,7 +73,7 @@ def get_username_info(user):
 #Given user handle OR id! -> returns up to 50 tweets
 def query_user_tweets(user):
 
-    url = "https://api.twitter.com/2/tweets/search/recent?query=from:{} -is:retweet&max_results=15&tweet.fields=created_at".format(user)
+    url = "https://api.twitter.com/2/tweets/search/recent?query=from:{} -is:retweet&max_results=20&tweet.fields=created_at".format(user)
 
     payload = {}
     headers = {
@@ -100,7 +100,7 @@ def get_user_friends(user):
     return response
 
 def get_list_of_friends(user):
-    url = "https://api.twitter.com/1.1/friends/list.json?screen_name={}&count=15".format(user)
+    url = "https://api.twitter.com/1.1/friends/list.json?screen_name={}&count=20".format(user)
 
     payload = {}
     headers = {
@@ -175,6 +175,9 @@ def generate_user_object(network):
 
         all_user_tweets = query_user_tweets(temp_dict['handle'])
         tweet_data = evaluate_tweets(all_user_tweets)#[1] Full crazy result -> [[pos,neu,neg, current_points, count], results]
+
+        if len(tweet_data) == 0:
+            continue
         analys[0] += tweet_data[0][0]
         analys[1] += tweet_data[0][1]
         analys[2] += tweet_data[0][2]
