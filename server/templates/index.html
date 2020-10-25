@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title>LOGO | Hello, friend!</title>
-		<link rel="stylesheet" href="./static/index.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 		<script src="https://kit.fontawesome.com/cf30b19bdf.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<header class="index-header">
-			<img src="./static/hellofriendlogo.svg" class="logo">
+			<img src="{{ url_for('static', filename='hellofriendlogo.svg') }}" class="logo">
 
 			<ul id="nav">
 				<li><a href="/nowhere"><i class="fas fa-chart-bar"></i> Basic Statistics</a></li>
