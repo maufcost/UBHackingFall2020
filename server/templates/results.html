@@ -27,185 +27,41 @@
 
 				<span class="left-sidebar-hr"></span>
 
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
+				{% for each_tweet in user_a[1] %}
+						<div class="tweet">
+							<img src="{{user['data']['profile_image_url']}}" class="tweet-image" />
+							<div class="tweet-gist">
+								<div class="tweet-gist-two">
+									<p class="tweet-handle">@{{user['data']['username']}}</p>
+									<p class="tweet-date"></p>
+								</div>
+								<p class="tweet-content">{{each_tweet['text']}}</p>
+							</div>
+							<div class="tweet-score-wrapper">
+								<small>Positivity score</small>
+								<p class="positivity-score">{{each_tweet['score']}}%</p>
+							</div>
 						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
+					{% endfor %}
 
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
+			{% for each_node in full_net %}
+					{% for each_tweet in each_node['tweet_data'][1] %}
+						<div class="tweet">
+							<img src="{{each_node['img']}}" class="tweet-image" />
+							<div class="tweet-gist">
+								<div class="tweet-gist-two">
+									<p class="tweet-handle">{{each_node['handle']}}</p>
+									<p class="tweet-date"></p>
+								</div>
+								<p class="tweet-content">{{each_tweet['text']}}</p>
+							</div>
+							<div class="tweet-score-wrapper">
+								<small>Positivity score</small>
+								<p class="positivity-score">{{each_tweet['score']}}%</p>
+							</div>
 						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
-
-				<div class="tweet">
-					<img src="{{ url_for('static', filename='terry.png') }}" class="tweet-image" />
-					<div class="tweet-gist">
-						<div class="tweet-gist-two">
-							<p class="tweet-handle">@maufc0st</p>
-							<p class="tweet-date">Oct 24</p>
-						</div>
-						<p class="tweet-content">I'm so good at CSS.</p>
-					</div>
-					<div class="tweet-score-wrapper">
-						<small>Positivity score</small>
-						<p class="positivity-score">87%</p>
-					</div>
-				</div>
+					{% endfor %}
+			{% endfor %}
 			</section>
 
 			<!-- The rest of the statistics are going to be here -->
@@ -218,30 +74,30 @@
 
 					<div class="data">
 						<h5>Overall positivity score of your conversations</h5>
-						<p>99.87%</p>
+						<p>{{user_score}}%</p>
 					</div>
 
 					<div class="data">
 						<h5>Number of positive tweets</h5>
-						<p>2,496</p>
-						<span> tweets</span>
-					</div>
-
-					<div class="data">
-						<h5>Number of negative tweets</h5>
-						<p>3</p>
+						<p>{{pos}}</p>
 						<span> tweets</span>
 					</div>
 
 					<div class="data">
 						<h5>Number of neutral tweets</h5>
-						<p>1</p>
+						<p>{{neu}}</p>
 						<span> tweet</span>
 					</div>
 
 					<div class="data">
-						<h5>Overall positivity score of Mauricio's network</h5>
-						<p>82.78%</p>
+						<h5>Number of negative tweets</h5>
+						<p>{{neg}}</p>
+						<span> tweets</span>
+					</div>
+
+					<div class="data">
+						<h5>Overall positivity score of your network</h5>
+						<p>{{net_score}}%</p>
 					</div>
 
 				</section>
@@ -257,23 +113,25 @@
 		</main>
 		<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 		<script>
+		 const everything = {{full_net | tojson}};
+		 let list = []
+		 let js_obj = {id: 1, label: "@{{user['data']['username']}}"}
+
+		 let edges_l = []
+		 list.push(js_obj);
+
+		 for(let i = 0; i< everything.length; i++){
+			 let temp_e = {from: 1, to: i+2};
+			 let temp = {id:i+2, label: "@"+everything[i].handle};
+
+			 edges_l.push(temp_e)
+			 list.push(temp);
+		 }
 			// Creating an array with nodes
-			let nodes = new vis.DataSet([
-				{ id: 1, label: "@maufc0st" },
-				{ id: 2, label: "@blabla" },
-				{ id: 3, label: "@terrycrews" },
-				{ id: 4, label: "@prtalals" },
-				{ id: 5, label: "@nate8888" },
-			]);
+			let nodes = new vis.DataSet(list);
 
 			// Creating an array with edges
-			let edges = new vis.DataSet([
-				{ from: 1, to: 3 },
-				{ from: 1, to: 2 },
-				{ from: 2, to: 4 },
-				{ from: 2, to: 5 },
-				{ from: 3, to: 3 },
-			]);
+			let edges = new vis.DataSet(edges_l);
 
 			// Creating a network
 			let container = document.querySelector(".node-graph");
